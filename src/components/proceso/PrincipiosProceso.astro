@@ -1,0 +1,90 @@
+---
+const principios = [
+  {
+    number: '01',
+    title: 'Personas en el centro',
+    description: 'Cada decisión de diseño parte del entendimiento profundo de las personas que usarán el producto.',
+    color: '#0A84FF',
+    icon: 'heart',
+  },
+  {
+    number: '02',
+    title: 'Diseñamos con intención',
+    description: 'No añadimos elementos sin propósito. Cada componente, flujo y decisión visual responde a una necesidad concreta.',
+    color: '#014D94',
+    icon: 'target',
+  },
+  {
+    number: '03',
+    title: 'Iteramos con evidencia',
+    description: 'Aprendemos de cada ciclo. Los hallazgos de validación alimentan el siguiente paso del diseño.',
+    color: '#FFC501',
+    icon: 'refresh',
+  },
+  {
+    number: '04',
+    title: 'Pensamos en sistemas',
+    description: 'Construimos soluciones que escalan: componentes reutilizables, patrones consistentes y arquitecturas sostenibles.',
+    color: '#0A84FF',
+    icon: 'grid',
+  },
+];
+---
+
+<section class="relative py-32 bg-am-dark">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 reveal">
+        Principios que <span class="text-am-yellow">guían</span> nuestro proceso
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed reveal" data-delay="0.1">
+        Detrás de cada etapa hay un conjunto de convicciones que orientan cómo tomamos decisiones,
+        cómo colaboramos y cómo construimos productos digitales con mayor impacto.
+      </p>
+    </div>
+
+    <!-- Connection line (desktop) -->
+    <div class="hidden lg:flex items-center justify-between mb-0 relative px-16">
+      <div class="absolute left-16 right-16 top-1/2 h-[1px] bg-gradient-to-r from-transparent via-am-accent/30 to-transparent"></div>
+      {principios.map((p) => (
+        <div class="w-4 h-4 rounded-full z-10" style={`background:${p.color};box-shadow:0 0 16px ${p.color}80`}></div>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+      {principios.map((p, i) => (
+        <div class="group reveal" data-delay={String(0.2 + i * 0.1)}>
+          <div class="bg-gradient-to-b from-am-blue/20 to-am-dark border border-am-accent/20 rounded-2xl p-8 h-full
+                      hover:border-am-accent/40 transition-all duration-300
+                      hover:shadow-[0_0_30px_rgba(10,132,255,0.1)] hover:-translate-y-1">
+
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-3xl font-bold font-mono" style={`color:${p.color}40`}>{p.number}</span>
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                style={`background:${p.color}15;border:1px solid ${p.color}30`}>
+                {p.icon === 'heart' && (
+                  <svg class="w-5 h-5" style={`color:${p.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                )}
+                {p.icon === 'target' && (
+                  <svg class="w-5 h-5" style={`color:${p.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                )}
+                {p.icon === 'refresh' && (
+                  <svg class="w-5 h-5" style={`color:${p.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                )}
+                {p.icon === 'grid' && (
+                  <svg class="w-5 h-5" style={`color:${p.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                )}
+              </div>
+            </div>
+
+            <h3 class="text-white font-semibold text-lg mb-3">{p.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{p.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-am-accent/3 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+</section>

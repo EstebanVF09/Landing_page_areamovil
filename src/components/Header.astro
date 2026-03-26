@@ -1,0 +1,125 @@
+---
+const pathname = Astro.url.pathname;
+const isHome      = pathname === '/';
+const isProyectos = pathname === '/proyectos';
+const isProceso   = pathname === '/proceso';
+const isTeam      = pathname === '/team';
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img
+          src="/assets/51b9d4cc2d7f97a1f13cce2d0e93663c9bc9d047.png"
+          alt="Areamovil"
+          class="h-8 md:h-10 w-auto"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a
+          href="/"
+          class:list={['nav-link relative text-sm font-medium transition-colors', isHome ? 'nav-active' : '']}
+        >
+          Home
+          {isHome && <span class="nav-underline"></span>}
+        </a>
+        <a
+          href="/proyectos"
+          class:list={['nav-link relative text-sm font-medium transition-colors', isProyectos ? 'nav-active' : '']}
+        >
+          Proyectos
+          {isProyectos && <span class="nav-underline"></span>}
+        </a>
+        <a
+          href="/proceso"
+          class:list={['nav-link relative text-sm font-medium transition-colors', isProceso ? 'nav-active' : '']}
+        >
+          Proceso
+          {isProceso && <span class="nav-underline"></span>}
+        </a>
+        <a
+          href="/team"
+          class:list={['nav-link relative text-sm font-medium transition-colors', isTeam ? 'nav-active' : '']}
+        >
+          Team
+          {isTeam && <span class="nav-underline"></span>}
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-white p-2"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-white/10 bg-am-dark/95 backdrop-blur-lg"
+  >
+    <nav class="flex flex-col px-6 py-4 space-y-4">
+      <a href="/"          class:list={['text-sm font-medium transition-colors', isHome      ? 'text-am-yellow' : 'text-white hover:text-am-accent']}>Home</a>
+      <a href="/proyectos" class:list={['text-sm font-medium transition-colors', isProyectos ? 'text-am-yellow' : 'text-white hover:text-am-accent']}>Proyectos</a>
+      <a href="/proceso"   class:list={['text-sm font-medium transition-colors', isProceso   ? 'text-am-yellow' : 'text-white hover:text-am-accent']}>Proceso</a>
+      <a href="/team"      class:list={['text-sm font-medium transition-colors', isTeam      ? 'text-am-yellow' : 'text-white hover:text-am-accent']}>Team</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav-link        { color: #fff; }
+  .nav-link:hover  { color: #0A84FF; }
+  .nav-active      { color: #FFC501 !important; }
+  .nav-underline {
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 2px;
+    background: #FFC501;
+    border-radius: 9999px;
+  }
+
+  #site-header.scrolled {
+    background: rgba(0, 29, 56, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+</style>
+
+<script>
+  // Scroll effect
+  const header = document.getElementById('site-header')!;
+  const onScroll = () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const btn      = document.getElementById('mobile-menu-btn')!;
+  const menu     = document.getElementById('mobile-menu')!;
+  const iconOpen  = document.getElementById('icon-open')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  btn.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(open));
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+  });
+</script>

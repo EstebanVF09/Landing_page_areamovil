@@ -1,0 +1,64 @@
+---
+const enfoques = [
+  {
+    titulo: 'Investigación que orienta',
+    texto: 'Cada decisión parte de comprender personas, contextos y necesidades reales.',
+    icon: 'search',
+  },
+  {
+    titulo: 'Diseño que organiza',
+    texto: 'Los flujos, contenidos e interfaces se construyen para dar claridad, no para añadir ruido.',
+    icon: 'layers',
+  },
+  {
+    titulo: 'Sistemas que sostienen',
+    texto: 'Más allá de una pantalla puntual, buscamos soluciones que puedan crecer con coherencia.',
+    icon: 'box',
+  },
+];
+---
+
+<section class="py-32 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-am-dark via-am-blue/10 to-am-dark pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Title -->
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Lo que estos proyectos tienen en común</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        Aunque cada proyecto responde a contextos distintos, todos comparten una misma lógica de trabajo:
+        entender el problema, ordenar la complejidad y traducirla en decisiones de diseño más claras,
+        consistentes y escalables.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {enfoques.map((e, i) => (
+        <div class="group reveal" data-delay={String(i * 0.1)}>
+          <div class="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10
+                      hover:border-am-accent/30 transition-all duration-500 h-full
+                      hover:shadow-xl hover:shadow-am-accent/10">
+
+            <div class="w-14 h-14 rounded-xl bg-am-accent/10 border border-am-accent/20 flex items-center justify-center mb-6
+                        group-hover:bg-am-accent/20 group-hover:border-am-accent/40 transition-all">
+              {e.icon === 'search' && (
+                <svg class="w-7 h-7 text-am-accent group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              )}
+              {e.icon === 'layers' && (
+                <svg class="w-7 h-7 text-am-accent group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              )}
+              {e.icon === 'box' && (
+                <svg class="w-7 h-7 text-am-accent group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              )}
+            </div>
+
+            <h3 class="text-xl font-semibold text-white mb-4 group-hover:text-am-accent transition-colors">{e.titulo}</h3>
+            <p class="text-gray-400 leading-relaxed">{e.texto}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

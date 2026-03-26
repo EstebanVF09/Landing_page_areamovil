@@ -1,0 +1,129 @@
+---
+interface Props {
+  id: string;
+  nombre: string;
+  categorias: string[];
+  descripcion: string;
+  objetivos: string[];
+  retos: string[];
+  logros: string[];
+  imagen: string;
+}
+const { id, nombre, categorias, descripcion, objetivos, retos, logros, imagen } = Astro.props;
+---
+
+<section id={`caso-${id}`} class="py-32 relative overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-am-accent rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header: image + info -->
+    <div class="max-w-7xl mx-auto mb-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Image -->
+        <div class="order-2 lg:order-1 reveal-left">
+          <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-am-dark/50 z-10"></div>
+            <img src={imagen} alt={nombre} class="w-full h-auto" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="order-1 lg:order-2 reveal" data-delay="0.1">
+          <div class="flex flex-wrap gap-3 mb-6">
+            {categorias.map(cat => (
+              <span class="text-sm px-4 py-2 rounded-full bg-am-accent/10 text-am-accent border border-am-accent/20">{cat}</span>
+            ))}
+          </div>
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">{nombre}</h2>
+          <p class="text-lg lg:text-xl text-gray-300 leading-relaxed">{descripcion}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail sections -->
+    <div class="max-w-6xl mx-auto space-y-16">
+
+      <!-- OBJETIVOS -->
+      <div class="grid md:grid-cols-[300px_1fr] gap-8 items-start reveal">
+        <div class="flex items-start gap-4 md:sticky md:top-32">
+          <div class="w-12 h-12 rounded-xl bg-am-yellow/10 border border-am-yellow/20 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-white mb-2">Objetivos</h3>
+            <p class="text-sm text-gray-400">Lo que buscábamos lograr</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          {objetivos.map((obj, i) => (
+            <div class="p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10
+                        hover:border-am-yellow/30 transition-colors group reveal" data-delay={String(i * 0.1)}>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-am-yellow/20 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-am-yellow/30 transition-colors">
+                  <div class="w-2 h-2 rounded-full bg-am-yellow"></div>
+                </div>
+                <p class="text-gray-300 leading-relaxed">{obj}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- RETOS -->
+      <div class="grid md:grid-cols-[300px_1fr] gap-8 items-start reveal">
+        <div class="flex items-start gap-4 md:sticky md:top-32">
+          <div class="w-12 h-12 rounded-xl bg-am-accent/10 border border-am-accent/20 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-white mb-2">Retos</h3>
+            <p class="text-sm text-gray-400">Los desafíos en el camino</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          {retos.map((reto, i) => (
+            <div class="p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10
+                        hover:border-am-accent/30 transition-colors group reveal" data-delay={String(i * 0.1)}>
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 rounded-full bg-am-accent/20 flex items-center justify-center flex-shrink-0 mt-1 group-hover:bg-am-accent/30 transition-colors">
+                  <div class="w-2 h-2 rounded-full bg-am-accent"></div>
+                </div>
+                <p class="text-gray-300 leading-relaxed">{reto}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- LOGROS -->
+      <div class="grid md:grid-cols-[300px_1fr] gap-8 items-start reveal">
+        <div class="flex items-start gap-4 md:sticky md:top-32">
+          <div class="w-12 h-12 rounded-xl bg-am-accent/10 border border-am-accent/20 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold text-white mb-2">Logros</h3>
+            <p class="text-sm text-gray-400">Lo que alcanzamos</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+          {logros.map((logro, i) => (
+            <div class="p-6 rounded-xl bg-gradient-to-br from-am-accent/10 to-transparent border border-am-accent/20
+                        hover:border-am-accent/40 hover:shadow-lg hover:shadow-am-accent/10 transition-all group reveal-scale" data-delay={String(i * 0.05)}>
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-am-accent flex-shrink-0 mt-0.5 group-hover:text-am-yellow transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                <p class="text-sm text-gray-300 leading-relaxed">{logro}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Separator -->
+    <div class="max-w-4xl mx-auto mt-24 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent reveal"></div>
+  </div>
+</section>

@@ -1,0 +1,113 @@
+---
+const capabilities = [
+  {
+    title: 'Research UX',
+    description: 'Recogemos hallazgos que nos ayudan a entender mejor a los usuarios, sus necesidades y sus contextos de uso.',
+    icon: 'users',
+  },
+  {
+    title: 'Arquitectura de información',
+    description: 'Organizamos contenidos, flujos y estructuras para que cada experiencia tenga orden y sentido.',
+    icon: 'folder',
+  },
+  {
+    title: 'Diseño de experiencia',
+    description: 'Definimos recorridos, interacciones y puntos clave del producto para mejorar su usabilidad.',
+    icon: 'route',
+  },
+  {
+    title: 'Diseño de interfaces',
+    description: 'Creamos pantallas limpias, funcionales y alineadas con la identidad visual del producto.',
+    icon: 'palette',
+  },
+  {
+    title: 'Prototipado y validación',
+    description: 'Construimos prototipos navegables para probar ideas, visualizar soluciones y ajustar antes de desarrollo.',
+    icon: 'play',
+  },
+  {
+    title: 'Design systems',
+    description: 'Desarrollamos bibliotecas y criterios visuales que facilitan la consistencia, la escalabilidad y la colaboración.',
+    icon: 'component',
+  },
+];
+---
+
+<section class="py-24 bg-gradient-to-b from-am-dark to-am-blue relative overflow-hidden">
+  <!-- Dot Pattern -->
+  <div class="absolute inset-0 opacity-5 bg-dots pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Lo que <span class="text-am-yellow">hacemos</span>
+      </h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Acompañamos distintas etapas del diseño digital, desde la exploración
+        inicial hasta la construcción de interfaces listas para crecer con consistencia.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+      {capabilities.map((cap, i) => (
+        <div class="group reveal-scale" data-delay={String(i * 0.1)}>
+          <div class="relative h-full p-8 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent
+                      backdrop-blur-sm hover:border-am-yellow/50 hover:shadow-xl hover:shadow-am-yellow/10
+                      hover:-translate-y-1 transition-all duration-300">
+
+            <!-- Icon -->
+            <div class="inline-flex p-3 rounded-lg bg-gradient-to-br from-am-yellow/20 to-am-yellow/5
+                        border border-am-yellow/30 mb-5
+                        group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              {cap.icon === 'users' && (
+                <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              )}
+              {cap.icon === 'folder' && (
+                <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                </svg>
+              )}
+              {cap.icon === 'route' && (
+                <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/>
+                  <circle cx="18" cy="5" r="3"/>
+                </svg>
+              )}
+              {cap.icon === 'palette' && (
+                <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
+                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
+                </svg>
+              )}
+              {cap.icon === 'play' && (
+                <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+              )}
+              {cap.icon === 'component' && (
+                <svg class="w-6 h-6 text-am-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5.5 8.5 9 12l-3.5 3.5L2 12l3.5-3.5Z"/><path d="m12 2 3.5 3.5L12 9 8.5 5.5 12 2Z"/>
+                  <path d="M18.5 8.5 22 12l-3.5 3.5L15 12l3.5-3.5Z"/><path d="m12 15 3.5 3.5L12 22l-3.5-3.5L12 15Z"/>
+                </svg>
+              )}
+            </div>
+
+            <h3 class="text-xl font-semibold text-white mb-3 group-hover:text-am-yellow transition-colors">{cap.title}</h3>
+            <p class="text-gray-400 leading-relaxed text-sm">{cap.description}</p>
+
+            <!-- Corner accent -->
+            <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-am-yellow/10 to-transparent
+                        rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

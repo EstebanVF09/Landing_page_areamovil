@@ -1,0 +1,131 @@
+---
+const roles = [
+  {
+    color: '#014D94',
+    label: 'Gestión · Coordinación · Dirección de proyecto',
+    title: 'Project Manager',
+    resumen: 'Es el rol que da estructura al proceso, alinea objetivos y asegura que el proyecto avance con claridad, orden y sentido de negocio.',
+    descripcion: 'El Project Manager asegura que los objetivos del proyecto se cumplan dentro del plazo y presupuesto establecidos. Facilita la comunicación y la colaboración entre los miembros del equipo, acompaña la resolución de conflictos y ayuda a que las decisiones se sostengan en una gestión clara, organizada y orientada a resultados.',
+    aporta: ['Alinea expectativas entre negocio, diseño y ejecución', 'Da seguimiento al rumbo del proyecto', 'Facilita la toma de decisiones y la colaboración', 'Ayuda a transformar complejidad en dirección clara'],
+    habilidades: ['Gestión de proyectos', 'Liderazgo de equipos', 'Comunicación efectiva', 'Resolución de problemas', 'Habilidades analíticas'],
+    icon: 'clipboard',
+  },
+  {
+    color: '#0A84FF',
+    label: 'Experiencia · Interfaz · Sistema visual',
+    title: 'Diseñador UX/UI',
+    resumen: 'Es el rol que convierte hallazgos, necesidades y objetivos en experiencias digitales intuitivas, funcionales y visualmente coherentes.',
+    descripcion: 'El Diseñador UX/UI es responsable de crear interfaces digitales que ofrezcan experiencias intuitivas y efectivas. Comprende las necesidades del usuario, desarrolla arquitecturas de información coherentes y diseña interfaces visuales atractivas y funcionales.',
+    aporta: ['Comprende al usuario y organiza la experiencia', 'Diseña recorridos e interfaces con intención', 'Construye consistencia visual y funcional', 'Traduce necesidades complejas en soluciones claras'],
+    habilidades: ['Diseño de interfaz de usuario', 'Investigación UX', 'Prototipado en Figma', 'Arquitectura de la información', 'Usabilidad y accesibilidad', 'Design systems', 'Atomic Design'],
+    icon: 'palette',
+  },
+];
+---
+
+<section class="relative py-32 bg-am-dark">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Roles <span class="text-am-accent">clave</span>
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        Los perfiles que sostienen el proceso de diseño y aseguran que cada proyecto avance con claridad, intención y coherencia.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8">
+      {roles.map((rol, i) => (
+        <div class="group reveal" data-delay={String(i * 0.2)}>
+          <div class="bg-gradient-to-br from-am-blue/30 to-am-dark/50 backdrop-blur-sm border border-am-accent/20 rounded-2xl overflow-hidden
+                      hover:border-am-accent/40 transition-all duration-300 hover:shadow-[0_0_40px_rgba(10,132,255,0.15)]">
+            <div class="p-8 lg:p-10">
+
+              <!-- Header -->
+              <div class="flex items-start gap-6 mb-6">
+                <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                  style={`background:${rol.color}20;border:1px solid ${rol.color}40;box-shadow:0 0 20px ${rol.color}20`}>
+                  {rol.icon === 'clipboard' && (
+                    <svg class="w-8 h-8" style={`color:${rol.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                  )}
+                  {rol.icon === 'palette' && (
+                    <svg class="w-8 h-8" style={`color:${rol.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+                  )}
+                </div>
+                <div class="flex-1">
+                  <div class="text-gray-400 text-sm mb-3">{rol.label}</div>
+                  <h3 class="text-white text-2xl font-semibold mb-4">{rol.title}</h3>
+                  <p class="text-gray-300 leading-relaxed">{rol.resumen}</p>
+                </div>
+              </div>
+
+              <!-- Expandable -->
+              <details class="group/details">
+                <summary class="cursor-pointer list-none">
+                  <button class="w-full py-3 px-4 rounded-lg border border-am-accent/30 text-am-accent
+                                 hover:bg-am-accent/10 transition-all duration-300 flex items-center justify-center gap-2 text-sm">
+                    <span class="group-open/details:hidden">Ver más detalles</span>
+                    <span class="hidden group-open/details:inline">Ver menos</span>
+                    <svg class="w-5 h-5 group-open/details:rotate-180 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </summary>
+
+                <div class="pt-6 border-t border-am-accent/20 mt-6 space-y-8">
+                  <p class="text-gray-400 leading-relaxed">{rol.descripcion}</p>
+
+                  <div>
+                    <h4 class="text-white font-semibold mb-4 flex items-center gap-2">
+                      <svg class="w-5 h-5" style={`color:${rol.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                      Lo que aporta al proceso
+                    </h4>
+                    <ul class="space-y-2">
+                      {rol.aporta.map(item => (
+                        <li class="text-gray-400 flex items-start gap-3">
+                          <span class="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={`background:${rol.color}`}></span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 class="text-white font-semibold mb-4 flex items-center gap-2">
+                      <svg class="w-5 h-5" style={`color:${rol.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                      Habilidades principales
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      {rol.habilidades.map(hab => (
+                        <span class="px-3 py-1.5 rounded-lg text-sm text-gray-300 border"
+                          style={`background:${rol.color}10;border-color:${rol.color}30`}>
+                          {hab}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Connection indicator -->
+    <div class="mt-12 flex items-center justify-center gap-4 reveal" data-delay="0.8">
+      <div class="text-gray-400 text-sm">Trabajo articulado</div>
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-am-blue-mid"></div>
+        <div class="w-16 h-[1px] bg-gradient-to-r from-am-blue-mid to-am-accent"></div>
+        <div class="w-2 h-2 rounded-full bg-am-accent"></div>
+      </div>
+      <div class="text-gray-400 text-sm">Resultados coherentes</div>
+    </div>
+  </div>
+
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-am-accent/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+</section>
+
+<style>
+  details > summary::-webkit-details-marker { display: none; }
+</style>

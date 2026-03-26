@@ -1,0 +1,53 @@
+---
+const capacidades = [
+  { title: 'Comunicación clara',      description: 'Las buenas decisiones de diseño empiezan por conversaciones bien articuladas.',                                                               color: '#0A84FF', icon: 'message'  },
+  { title: 'Pensamiento estructural', description: 'Organizamos problemas, información y prioridades para diseñar con lógica.',                                                                  color: '#014D94', icon: 'box'      },
+  { title: 'Criterio visual y funcional', description: 'Buscamos soluciones que no solo se vean bien, sino que funcionen bien.',                                                                 color: '#0A84FF', icon: 'eye'      },
+  { title: 'Evolución constante',     description: 'Nos adaptamos a nuevas tecnologías, contextos y necesidades para seguir construyendo productos relevantes.',                                  color: '#FFC501', icon: 'trending' },
+];
+---
+
+<section class="relative py-32 bg-gradient-to-b from-am-blue/20 to-am-dark">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 reveal">
+        Lo que <span class="text-am-accent">sostiene</span> nuestro trabajo
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed reveal" data-delay="0.1">
+        Más allá de los roles, nuestro trabajo se apoya en capacidades que atraviesan todo el proceso
+        y permiten construir experiencias digitales con mayor consistencia, intención y calidad.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {capacidades.map((cap, i) => (
+        <div class="group reveal" data-delay={String(0.2 + i * 0.1)}>
+          <div class="bg-am-dark border border-am-accent/20 rounded-xl p-6 h-full
+                      hover:border-am-accent/40 transition-all duration-300
+                      hover:shadow-[0_0_30px_rgba(10,132,255,0.1)] hover:-translate-y-1">
+
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
+              style={`background:${cap.color}15;border:1px solid ${cap.color}30`}>
+              {cap.icon === 'message' && (
+                <svg class="w-6 h-6" style={`color:${cap.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              )}
+              {cap.icon === 'box' && (
+                <svg class="w-6 h-6" style={`color:${cap.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              )}
+              {cap.icon === 'eye' && (
+                <svg class="w-6 h-6" style={`color:${cap.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              )}
+              {cap.icon === 'trending' && (
+                <svg class="w-6 h-6" style={`color:${cap.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              )}
+            </div>
+
+            <h3 class="text-white font-semibold mb-3">{cap.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">{cap.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

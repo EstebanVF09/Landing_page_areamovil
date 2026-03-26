@@ -1,0 +1,87 @@
+---
+const metrics = [
+  { value: '20+', label: 'Años',      description: 'Creando productos digitales',                       icon: 'calendar' },
+  { value: '85+', label: 'Proyectos', description: 'Desarrollados junto a nuestros clientes',           icon: 'briefcase' },
+  { value: '60+', label: 'Clientes',  description: 'Han confiado en nuestro trabajo',                   icon: 'users'    },
+  { value: '',    label: 'Equipos interdisciplinarios', description: 'Diseño, tecnología y estrategia trabajando en conjunto', icon: 'zap' },
+];
+---
+
+<section class="py-24 bg-am-dark relative overflow-hidden">
+  <!-- Background glows -->
+  <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-am-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/2 right-1/4 w-96 h-96 bg-am-yellow/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Experiencia que se traduce en <span class="text-am-accent">criterio</span>
+      </h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Nuestra trayectoria nos ha permitido participar en proyectos de distintas escalas e industrias,
+        siempre con una mirada centrada en las personas, el producto y la evolución digital.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      {metrics.map((m, i) => (
+        <div class="group reveal-scale" data-delay={String(i * 0.1)}>
+          <div class="relative h-full p-8 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent
+                      backdrop-blur-sm hover:border-am-accent/50 hover:shadow-xl hover:shadow-am-accent/10
+                      transition-all duration-300 text-center">
+
+            <!-- Icon -->
+            <div class="inline-flex p-4 rounded-xl bg-gradient-to-br from-am-accent/20 to-am-accent/5
+                        border border-am-accent/30 mb-6
+                        group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+              {m.icon === 'calendar' && (
+                <svg class="w-8 h-8 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              )}
+              {m.icon === 'briefcase' && (
+                <svg class="w-8 h-8 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                </svg>
+              )}
+              {m.icon === 'users' && (
+                <svg class="w-8 h-8 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              )}
+              {m.icon === 'zap' && (
+                <svg class="w-8 h-8 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              )}
+            </div>
+
+            <!-- Value -->
+            {m.value && (
+              <div class="text-5xl font-bold text-am-yellow mb-2 group-hover:scale-110 transition-transform duration-300">
+                {m.value}
+              </div>
+            )}
+
+            <!-- Label -->
+            <div class="text-xl font-semibold text-white mb-3">{m.label}</div>
+
+            <!-- Description -->
+            <p class="text-gray-400 text-sm leading-relaxed">{m.description}</p>
+
+            <!-- Bottom accent line -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1
+                        bg-gradient-to-r from-am-accent to-am-yellow
+                        group-hover:w-3/4 transition-all duration-500 rounded-full"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,121 @@
+---
+const steps = [
+  { title: 'Descubrir',   description: 'Entendemos el contexto, el reto y las necesidades reales de las personas usuarias.',                                                              icon: 'lightbulb' },
+  { title: 'Definir',     description: 'Priorizamos hallazgos, alineamos objetivos y trazamos una dirección clara para el producto.',                                                    icon: 'target'    },
+  { title: 'Diseñar',     description: 'Convertimos ideas en flujos, estructuras e interfaces coherentes con el problema que queremos resolver.',                                        icon: 'pencil'    },
+  { title: 'Prototipar',  description: 'Llevamos la solución a experiencias tangibles que nos permitan revisar, compartir y ajustar.',                                                   icon: 'boxes'     },
+  { title: 'Validar',     description: 'Probamos, refinamos y optimizamos la experiencia antes de escalarla.',                                                                          icon: 'check'     },
+  { title: 'Evolucionar', description: 'Acompañamos el crecimiento del producto para que siga respondiendo a nuevas necesidades con lógica y consistencia.',                            icon: 'trending'  },
+];
+---
+
+<section class="py-24 bg-am-dark relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div class="absolute top-20 left-10 w-1 h-96 bg-gradient-to-b from-transparent via-am-accent/20 to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-20 right-10 w-1 h-96 bg-gradient-to-b from-transparent via-am-yellow/20 to-transparent pointer-events-none"></div>
+
+  <!-- Floating circles -->
+  <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full border-2 border-am-accent/20 animate-pulse-glow pointer-events-none"></div>
+  <div class="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full border-2 border-am-yellow/20 animate-pulse-glow pointer-events-none" style="animation-delay:1s"></div>
+
+  <!-- Rotating diamond -->
+  <div class="absolute top-40 right-20 w-16 h-16 border border-am-accent/20 animate-spin-slow pointer-events-none"></div>
+  <div class="absolute bottom-40 left-20 w-20 h-20 border border-am-yellow/20 rounded-lg animate-float pointer-events-none"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Nuestro proceso, de la <span class="text-am-accent">idea</span> a la <span class="text-am-yellow">experiencia</span>
+      </h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Trabajamos con un enfoque iterativo que combina exploración, estrategia, diseño y validación.
+        Adaptamos nuestra metodología a las necesidades de cada proyecto para construir soluciones claras,
+        útiles y sostenibles.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="max-w-2xl mx-auto">
+      {steps.map((step, i) => (
+        <div class="relative mb-12 last:mb-0 reveal" data-delay={String(i * 0.1)}>
+          <div class="flex flex-col items-center gap-6">
+
+            <!-- Icon node -->
+            <div class="relative flex items-center justify-center shrink-0">
+              <div class="w-16 h-16 rounded-full bg-gradient-to-br from-am-accent to-am-yellow p-[2px]">
+                <div class="w-full h-full rounded-full bg-am-dark flex items-center justify-center">
+                  {step.icon === 'lightbulb' && (
+                    <svg class="w-7 h-7 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                      <path d="M9 18h6"/><path d="M10 22h4"/>
+                    </svg>
+                  )}
+                  {step.icon === 'target' && (
+                    <svg class="w-7 h-7 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                    </svg>
+                  )}
+                  {step.icon === 'pencil' && (
+                    <svg class="w-7 h-7 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                    </svg>
+                  )}
+                  {step.icon === 'boxes' && (
+                    <svg class="w-7 h-7 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z"/>
+                      <path d="m7 16.5-4.74-2.85"/><path d="m7 16.5 5-3"/><path d="M7 16.5v5.17"/>
+                      <path d="M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z"/>
+                      <path d="m17 16.5-5-3"/><path d="m17 16.5 4.74-2.85"/><path d="M17 16.5v5.17"/>
+                      <path d="M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z"/>
+                      <path d="M12 8 7.26 5.15"/><path d="m12 8 4.74-2.85"/><path d="M12 13.5V8"/>
+                    </svg>
+                  )}
+                  {step.icon === 'check' && (
+                    <svg class="w-7 h-7 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/>
+                    </svg>
+                  )}
+                  {step.icon === 'trending' && (
+                    <svg class="w-7 h-7 text-am-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
+                    </svg>
+                  )}
+                </div>
+              </div>
+
+              <!-- Connecting line -->
+              {i < steps.length - 1 && (
+                <div class="absolute top-full left-1/2 -translate-x-1/2 w-[2px] h-12 bg-gradient-to-b from-am-accent/50 to-am-yellow/50"></div>
+              )}
+
+              <!-- Step number -->
+              <div class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-am-yellow flex items-center justify-center text-am-dark text-sm font-bold">
+                {i + 1}
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="w-full max-w-xl group">
+              <div class="p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent
+                          backdrop-blur-sm hover:border-am-accent/50 hover:shadow-lg hover:shadow-am-accent/10
+                          transition-all duration-300 text-center">
+                <h3 class="text-2xl font-semibold text-white mb-3 group-hover:text-am-accent transition-colors">{step.title}</h3>
+                <p class="text-gray-400 leading-relaxed">{step.description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Closing text -->
+    <div class="text-center mt-16 max-w-2xl mx-auto reveal">
+      <p class="text-lg text-gray-300 italic">
+        Cada proyecto tiene un ritmo distinto. Nuestro proceso no es rígido: es
+        una guía flexible que nos ayuda a diseñar con intención.
+      </p>
+    </div>
+  </div>
+</section>

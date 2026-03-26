@@ -1,0 +1,104 @@
+---
+const projects = [
+  {
+    name: 'Coomeva',
+    description: 'Acompañamos el proceso de investigación, análisis y redefinición de la experiencia para construir una interfaz más clara, útil e intuitiva.',
+    accentColor: '#0A84FF',
+    colorFrom: 'from-am-accent/20',
+    colorTo: 'to-am-accent/5',
+    image: '/assets/21456527492b2b32b0fe766b61a822aed5b8c9f9.png',
+    href: '/proyectos#caso-coomeva',
+  },
+  {
+    name: 'Mapfre',
+    description: 'Participamos en la estructuración de flujos, exploración de oportunidades y diseño de experiencias digitales para distintos productos y contextos.',
+    accentColor: '#FFC501',
+    colorFrom: 'from-am-yellow/20',
+    colorTo: 'to-am-yellow/5',
+    image: '/assets/7d192560a202c664af1c97e0ede02a99f3675968.png',
+    href: '/proyectos#caso-mapfre',
+  },
+  {
+    name: 'Homecenter',
+    description: 'Diseñamos soluciones enfocadas en orden, usabilidad y escalabilidad, apoyando la construcción de herramientas más eficientes para los usuarios.',
+    accentColor: '#0A84FF',
+    colorFrom: 'from-am-accent/20',
+    colorTo: 'to-am-accent/5',
+    image: '/assets/a3380838d93eadc2dc9034d6cd51d32201a52e45.png',
+    href: '/proyectos#caso-homecenter',
+  },
+];
+---
+
+<section class="py-24 bg-gradient-to-b from-am-blue to-am-dark relative overflow-hidden">
+  <!-- Pattern -->
+  <div class="absolute inset-0 opacity-5 pointer-events-none"
+    style="background-image: linear-gradient(45deg,rgba(10,132,255,.2) 25%,transparent 25%),linear-gradient(-45deg,rgba(10,132,255,.2) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,rgba(10,132,255,.2) 75%),linear-gradient(-45deg,transparent 75%,rgba(10,132,255,.2) 75%);background-size:60px 60px;background-position:0 0,0 30px,30px -30px,-30px 0">
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Proyectos que hablan desde la <span class="text-am-yellow">experiencia</span>
+      </h2>
+      <p class="text-lg text-gray-300 leading-relaxed">
+        Cada proyecto representa una forma distinta de aplicar UX/UI:
+        investigar, ordenar, simplificar, rediseñar y construir productos
+        digitales con mayor claridad y valor.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
+      {projects.map((p, i) => (
+        <div class="group cursor-pointer reveal" data-delay={String(i * 0.2)}>
+          <a href={p.href} class="block h-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent
+                backdrop-blur-sm hover:border-white/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+
+            <!-- Image -->
+            <div class={`relative h-64 bg-gradient-to-br ${p.colorFrom} ${p.colorTo} overflow-hidden`}>
+              <img
+                src={p.image}
+                alt={p.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+              <!-- Glow on hover -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                style={`background: radial-gradient(circle at center, ${p.accentColor}, transparent)`}></div>
+            </div>
+
+            <!-- Info -->
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-3 group-hover:translate-x-2 transition-transform duration-300"
+                style={`color: ${p.accentColor}`}>
+                {p.name}
+              </h3>
+              <p class="text-gray-400 leading-relaxed mb-4">{p.description}</p>
+              <div class="inline-flex items-center gap-2 text-sm font-medium group-hover:gap-4 transition-all duration-300"
+                style={`color: ${p.accentColor}`}>
+                Ver caso de estudio
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+
+            <!-- Corner accent -->
+            <div class="absolute top-0 right-0 w-24 h-24 opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500"
+              style={`background: ${p.accentColor}`}></div>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center reveal">
+      <a href="/proyectos" class="inline-flex items-center bg-am-yellow text-am-dark font-semibold px-8 py-4 rounded-lg
+               text-lg shadow-lg shadow-am-yellow/20 hover:bg-am-yellow/90 transition-all duration-300 group">
+        Explorar todos los proyectos
+        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>

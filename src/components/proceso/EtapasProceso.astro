@@ -1,0 +1,178 @@
+---
+const etapas = [
+  {
+    number: '01',
+    title: 'Descubrir',
+    subtitle: 'Investigación y contexto',
+    description: 'Antes de diseñar, entendemos. Investigamos a los usuarios, analizamos el producto actual y mapeamos el contexto de negocio para tomar decisiones fundamentadas.',
+    actividades: [
+      'Entrevistas con usuarios y stakeholders',
+      'Análisis heurístico del producto actual',
+      'Benchmarking y análisis competitivo',
+      'Definición de objetivos y métricas de éxito',
+      'Mapeo del contexto de negocio',
+    ],
+    color: '#0A84FF',
+    icon: 'search',
+  },
+  {
+    number: '02',
+    title: 'Definir',
+    subtitle: 'Síntesis y estrategia',
+    description: 'Convertimos los hallazgos en oportunidades concretas. Definimos el problema con precisión, priorizamos desafíos y establecemos la dirección estratégica del diseño.',
+    actividades: [
+      'Síntesis de insights y hallazgos',
+      'Definición del problema (How Might We)',
+      'User personas y mapas de empatía',
+      'Priorización de oportunidades',
+      'Definición de alcance y restricciones',
+    ],
+    color: '#014D94',
+    icon: 'filter',
+  },
+  {
+    number: '03',
+    title: 'Idear',
+    subtitle: 'Exploración y soluciones',
+    description: 'Generamos ideas sin juzgar, exploramos múltiples direcciones y convergemos en las soluciones con mayor potencial para resolver el problema definido.',
+    actividades: [
+      'Sesiones de ideación colaborativa',
+      'Sketching y wireframing rápido',
+      'Arquitectura de la información',
+      'Flujos de usuario y recorridos clave',
+      'Selección y refinamiento de conceptos',
+    ],
+    color: '#FFC501',
+    icon: 'lightbulb',
+  },
+  {
+    number: '04',
+    title: 'Prototipar',
+    subtitle: 'Diseño y sistemas',
+    description: 'Construimos con intención. Diseñamos interfaces, sistemas visuales y componentes que traducen las ideas en soluciones digitales funcionales y coherentes.',
+    actividades: [
+      'Diseño de componentes y design system',
+      'Prototipos de media y alta fidelidad',
+      'Diseño de interfaz visual (UI)',
+      'Especificaciones para desarrollo',
+      'Documentación de patrones',
+    ],
+    color: '#0A84FF',
+    icon: 'layers',
+  },
+  {
+    number: '05',
+    title: 'Validar',
+    subtitle: 'Testing y aprendizaje',
+    description: 'Ponemos las soluciones frente a usuarios reales. Aprendemos de su comportamiento, identificamos fricciones y refinamos antes de implementar.',
+    actividades: [
+      'Pruebas de usabilidad con usuarios',
+      'Análisis de resultados y hallazgos',
+      'Iteración basada en evidencia',
+      'Revisión con stakeholders',
+      'Aprobación y cierre de diseño',
+    ],
+    color: '#014D94',
+    icon: 'check',
+  },
+  {
+    number: '06',
+    title: 'Implementar y evolucionar',
+    subtitle: 'Acompañamiento continuo',
+    description: 'El diseño no termina en la entrega. Acompañamos la implementación, monitoreamos resultados y continuamos mejorando el producto con base en datos reales.',
+    actividades: [
+      'Acompañamiento al equipo de desarrollo',
+      'QA de implementación visual',
+      'Monitoreo de métricas post-lanzamiento',
+      'Identificación de nuevas oportunidades',
+      'Ciclos de mejora continua',
+    ],
+    color: '#FFC501',
+    icon: 'rocket',
+  },
+];
+---
+
+<section id="etapas" class="relative py-32 bg-gradient-to-b from-am-blue/20 to-am-dark">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 reveal">
+        Las <span class="text-am-accent">6 etapas</span> del proceso
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed reveal" data-delay="0.1">
+        Un recorrido estructurado que se adapta a la complejidad y las necesidades de cada proyecto.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-am-accent/50 via-am-accent/20 to-transparent -translate-x-1/2"></div>
+
+      <div class="space-y-12">
+        {etapas.map((etapa, i) => (
+          <div class={`relative flex gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-start reveal`}
+               data-delay={String(0.1 + i * 0.1)}>
+
+            <!-- Node -->
+            <div class="absolute left-8 md:left-1/2 -translate-x-1/2 z-10 w-12 h-12 rounded-full flex items-center justify-center border-2"
+              style={`background:${etapa.color}20;border-color:${etapa.color};box-shadow:0 0 20px ${etapa.color}40`}>
+              <span class="text-sm font-bold font-mono" style={`color:${etapa.color}`}>{etapa.number}</span>
+            </div>
+
+            <!-- Spacer for md layout -->
+            <div class="hidden md:block w-1/2 flex-shrink-0"></div>
+
+            <!-- Card -->
+            <div class="ml-20 md:ml-0 md:w-1/2 group">
+              <div class="bg-am-dark border border-am-accent/20 rounded-2xl p-8
+                          hover:border-am-accent/40 transition-all duration-300
+                          hover:shadow-[0_0_30px_rgba(10,132,255,0.1)]">
+
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 rounded-lg flex items-center justify-center"
+                    style={`background:${etapa.color}15;border:1px solid ${etapa.color}30`}>
+                    {etapa.icon === 'search' && (
+                      <svg class="w-5 h-5" style={`color:${etapa.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                    )}
+                    {etapa.icon === 'filter' && (
+                      <svg class="w-5 h-5" style={`color:${etapa.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                    )}
+                    {etapa.icon === 'lightbulb' && (
+                      <svg class="w-5 h-5" style={`color:${etapa.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                    )}
+                    {etapa.icon === 'layers' && (
+                      <svg class="w-5 h-5" style={`color:${etapa.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    )}
+                    {etapa.icon === 'check' && (
+                      <svg class="w-5 h-5" style={`color:${etapa.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                    )}
+                    {etapa.icon === 'rocket' && (
+                      <svg class="w-5 h-5" style={`color:${etapa.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                    )}
+                  </div>
+                  <div>
+                    <p class="text-xs uppercase tracking-widest font-medium" style={`color:${etapa.color}`}>{etapa.subtitle}</p>
+                    <h3 class="text-white text-xl font-bold">{etapa.title}</h3>
+                  </div>
+                </div>
+
+                <p class="text-gray-400 leading-relaxed mb-6">{etapa.description}</p>
+
+                <ul class="space-y-2">
+                  {etapa.actividades.map((act) => (
+                    <li class="flex items-start gap-2 text-gray-400 text-sm">
+                      <span class="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={`background:${etapa.color}`}></span>
+                      <span>{act}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

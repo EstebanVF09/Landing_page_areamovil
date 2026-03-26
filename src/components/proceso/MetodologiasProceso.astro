@@ -1,0 +1,92 @@
+---
+const metodologias = [
+  {
+    title: 'Design Thinking',
+    description: 'Un enfoque centrado en las personas para resolver problemas complejos. Nos permite explorar con amplitud antes de converger en soluciones, asegurando que lo que diseñamos responde a necesidades reales.',
+    etapas: ['Empatizar', 'Definir', 'Idear', 'Prototipar', 'Testear'],
+    color: '#0A84FF',
+    icon: 'brain',
+    cuando: 'Proyectos con alta incertidumbre o problemas no definidos',
+  },
+  {
+    title: 'Procesos Ágiles',
+    description: 'Trabajamos en ciclos cortos, con entregas incrementales y retroalimentación continua. Esto nos permite adaptarnos rápidamente a cambios y mantener alineación constante con los equipos.',
+    etapas: ['Planificar', 'Sprints', 'Revisión', 'Retrospectiva', 'Iterar'],
+    color: '#014D94',
+    icon: 'loop',
+    cuando: 'Productos en evolución o equipos de trabajo colaborativo',
+  },
+  {
+    title: 'Doble Diamante',
+    description: 'Un modelo de proceso que alterna entre divergencia y convergencia: primero exploramos el problema en profundidad, luego definimos con precisión; luego exploramos soluciones y finalmente entregamos.',
+    etapas: ['Descubrir', 'Definir', 'Desarrollar', 'Entregar'],
+    color: '#FFC501',
+    icon: 'diamond',
+    cuando: 'Proyectos de diseño de producto o rediseño de experiencias',
+  },
+];
+---
+
+<section id="metodologias" class="relative py-32 bg-am-dark">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 reveal">
+        Metodologías que <span class="text-am-accent">aplicamos</span>
+      </h2>
+      <p class="text-gray-300 text-lg leading-relaxed reveal" data-delay="0.1">
+        No nos limitamos a una sola metodología. Seleccionamos y combinamos marcos de trabajo
+        según la naturaleza del proyecto, el contexto y las necesidades del equipo.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      {metodologias.map((met, i) => (
+        <div class="group reveal" data-delay={String(0.2 + i * 0.15)}>
+          <div class="bg-gradient-to-b from-am-blue/20 to-am-dark border border-am-accent/20 rounded-2xl p-8 h-full
+                      hover:border-am-accent/40 transition-all duration-300
+                      hover:shadow-[0_0_40px_rgba(10,132,255,0.1)] hover:-translate-y-1">
+
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+              style={`background:${met.color}15;border:1px solid ${met.color}30`}>
+              {met.icon === 'brain' && (
+                <svg class="w-7 h-7" style={`color:${met.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+              )}
+              {met.icon === 'loop' && (
+                <svg class="w-7 h-7" style={`color:${met.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              )}
+              {met.icon === 'diamond' && (
+                <svg class="w-7 h-7" style={`color:${met.color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="2" x2="12" y2="22"/><path d="M2 8.5h20"/><path d="M2 15.5h20"/></svg>
+              )}
+            </div>
+
+            <h3 class="text-white text-xl font-bold mb-4">{met.title}</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">{met.description}</p>
+
+            <!-- Stages -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              {met.etapas.map((etapa, j) => (
+                <div class="flex items-center gap-1">
+                  <span class="px-2 py-1 rounded text-xs font-medium"
+                    style={`background:${met.color}15;color:${met.color};border:1px solid ${met.color}30`}>
+                    {etapa}
+                  </span>
+                  {j < met.etapas.length - 1 && (
+                    <svg class="w-3 h-3 text-gray-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <!-- When to use -->
+            <div class="pt-4 border-t border-am-accent/10">
+              <p class="text-xs uppercase tracking-widest text-gray-500 mb-1">Ideal para</p>
+              <p class="text-gray-400 text-sm">{met.cuando}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProyectosHero from '../components/proyectos/ProyectosHero.astro';
+import IntroduccionEditorial from '../components/proyectos/IntroduccionEditorial.astro';
+import CasoDetallado from '../components/proyectos/CasoDetallado.astro';
+import BloqueEnfoque from '../components/proyectos/BloqueEnfoque.astro';
+import ProyectosCTA from '../components/proyectos/ProyectosCTA.astro';
+
+const proyectos = [
+  {
+    id: 'coomeva',
+    nombre: 'Coomeva',
+    categorias: ['Investigación UX', 'Diseño de interfaz', 'Design System'],
+    descripcion: 'Rediseño integral de la experiencia digital para uno de los principales grupos cooperativos de Colombia, mejorando la navegación y la accesibilidad de sus servicios financieros y de salud.',
+    objetivos: [
+      'Unificar la experiencia digital de los múltiples portales del grupo',
+      'Mejorar la accesibilidad para usuarios con diferentes niveles de alfabetización digital',
+      'Reducir la fricción en los flujos de servicio más utilizados',
+      'Establecer un design system escalable para todos los productos digitales',
+    ],
+    retos: [
+      'Diversidad de usuarios con diferentes necesidades y capacidades tecnológicas',
+      'Múltiples productos y portales con historias técnicas distintas',
+      'Coordinación con equipos de desarrollo distribuidos',
+      'Equilibrar las necesidades del negocio con la experiencia del usuario',
+    ],
+    logros: [
+      'Design system con más de 120 componentes documentados',
+      'Reducción del 40% en el tiempo promedio de las tareas clave',
+      'Aumento en la satisfacción del usuario medida por NPS',
+      'Integración exitosa con los equipos de tecnología del cliente',
+    ],
+    imagen: '/assets/21456527492b2b32b0fe766b61a822aed5b8c9f9.png',
+  },
+  {
+    id: 'mapfre',
+    nombre: 'Mapfre',
+    categorias: ['UX Research', 'Prototipado', 'Testing de usabilidad'],
+    descripcion: 'Investigación y rediseño de los flujos de cotización y contratación de seguros digitales para el mercado latinoamericano de Mapfre, con foco en simplicidad y conversión.',
+    objetivos: [
+      'Simplificar el proceso de cotización de seguros en línea',
+      'Aumentar la tasa de conversión en el embudo digital',
+      'Adaptar la experiencia a las particularidades del mercado local',
+      'Reducir las llamadas de soporte relacionadas con el proceso digital',
+    ],
+    retos: [
+      'Proceso de contratación con alta carga regulatoria y de información',
+      'Usuarios con desconfianza hacia la contratación digital de seguros',
+      'Necesidad de equilibrar completitud legal con simplicidad de uso',
+      'Integración con sistemas legados de la compañía',
+    ],
+    logros: [
+      'Reducción del abandono en el proceso de cotización en un 35%',
+      'Prototipo validado con usuarios en 3 países de Latinoamérica',
+      'Flujo de contratación simplificado de 12 a 6 pasos principales',
+      'Guías de diseño documentadas para los equipos locales',
+    ],
+    imagen: '/assets/7d192560a202c664af1c97e0ede02a99f3675968.png',
+  },
+  {
+    id: 'homecenter',
+    nombre: 'Homecenter',
+    categorias: ['Arquitectura de información', 'UX/UI', 'E-commerce'],
+    descripcion: 'Rediseño de la experiencia de compra en línea de una de las principales cadenas de mejoramiento del hogar en Colombia, con énfasis en la búsqueda, filtrado y flujo de compra.',
+    objetivos: [
+      'Mejorar la experiencia de búsqueda y descubrimiento de productos',
+      'Optimizar el flujo de compra para dispositivos móviles',
+      'Reducir el tiempo de decisión de compra',
+      'Aumentar la adopción de funcionalidades de compra en línea',
+    ],
+    retos: [
+      'Catálogo de más de 80.000 productos con alta variabilidad',
+      'Usuarios con diferentes niveles de familiaridad con el e-commerce',
+      'Integración con sistemas de inventario en tiempo real',
+      'Balance entre la identidad de marca física y la experiencia digital',
+    ],
+    logros: [
+      'Nueva arquitectura de navegación con 30% menos pasos hasta el producto',
+      'Rediseño del buscador con autocompletado y filtros inteligentes',
+      'Aumento en la tasa de conversión mobile del 28%',
+      'Sistema de componentes para el equipo de producto interno',
+    ],
+    imagen: '/assets/a3380838d93eadc2dc9034d6cd51d32201a52e45.png',
+  },
+];
+---
+
+<BaseLayout title="Proyectos — Areamovil" description="Casos de diseño UX/UI donde la investigación, la estrategia y el diseño se traducen en experiencias digitales más claras, útiles y efectivas.">
+  <ProyectosHero />
+  <IntroduccionEditorial />
+  {proyectos.map((proyecto) => (
+    <CasoDetallado {...proyecto} />
+  ))}
+  <BloqueEnfoque />
+  <ProyectosCTA />
+</BaseLayout>

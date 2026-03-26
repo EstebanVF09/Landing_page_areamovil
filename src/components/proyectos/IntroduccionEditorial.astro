@@ -1,0 +1,59 @@
+---
+const tags = [
+  { label: 'Research UX',    icon: 'search'  },
+  { label: 'Arquitectura',   icon: 'layers'  },
+  { label: 'Flujos',         icon: 'git'     },
+  { label: 'Prototipado',    icon: 'palette' },
+  { label: 'Design System',  icon: 'layout'  },
+];
+---
+
+<section id="indice-proyectos" class="py-24 relative overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Title -->
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Una mirada a cómo diseñamos</h2>
+      </div>
+
+      <!-- Text -->
+      <div class="space-y-6 mb-12 reveal" data-delay="0.1">
+        <p class="text-lg text-gray-300 leading-relaxed">
+          A lo largo de distintos proyectos hemos acompañado procesos de rediseño, estructuración de flujos,
+          evolución de interfaces y construcción de sistemas más consistentes. Esta selección reúne algunos casos
+          donde el diseño ayudó a conectar mejor las necesidades del usuario con los objetivos del producto y del negocio.
+        </p>
+        <p class="text-gray-400 leading-relaxed">
+          Más que mostrar pantallas, queremos mostrar cómo pensamos: qué necesitaba resolverse, qué desafíos
+          aparecieron en el camino y cómo el diseño aportó orden, criterio y dirección.
+        </p>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-4 justify-center reveal" data-delay="0.2">
+        {tags.map((tag, i) => (
+          <div class="flex items-center gap-2 px-4 py-3 rounded-lg bg-white/5 border border-white/10
+                      hover:border-am-accent/40 transition-colors group reveal-scale" data-delay={String(0.3 + i * 0.1)}>
+            {tag.icon === 'search' && (
+              <svg class="w-4 h-4 text-am-accent group-hover:text-am-yellow transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            )}
+            {tag.icon === 'layers' && (
+              <svg class="w-4 h-4 text-am-accent group-hover:text-am-yellow transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            )}
+            {tag.icon === 'git' && (
+              <svg class="w-4 h-4 text-am-accent group-hover:text-am-yellow transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+            )}
+            {tag.icon === 'palette' && (
+              <svg class="w-4 h-4 text-am-accent group-hover:text-am-yellow transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            )}
+            {tag.icon === 'layout' && (
+              <svg class="w-4 h-4 text-am-accent group-hover:text-am-yellow transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            )}
+            <span class="text-sm text-white/70 group-hover:text-white transition-colors">{tag.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
